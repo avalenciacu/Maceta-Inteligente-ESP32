@@ -1,0 +1,41 @@
+name: Importar hardware
+on:
+  push:
+    paths:
+      - '.github/workflows/importar-hardware.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  importar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Extraer archivos sin sobrescribir documentos existentes
+        run: |
+          python - <<'PY'
+          from pathlib import Path, PurePosixPath
+          import zipfile
+          with zipfile.ZipFile('Hardware_Maceta_GitHub.zip') as z:
+              assert z.testzip() is None
+              count = 0
+              for item in z.infolist():
+                  p = PurePosixPath(item.filename)
+                  if item.is_dir(): continue
+                  if p.is_absolute() or '..' in p.parts: raise ValueError(item.filename)
+                  if '02_Hardware' not in p.parts: continue
+                  dest = Path(*p.parts[p.parts.index('02_Hardware'):])
+                  if dest.exists():
+                      print('Conservado:', dest)
+                      continue
+                  dest.parent.mkdir(parents=True, exist_ok=True)
+                  dest.write_bytes(z.read(item))
+                  count += 1
+              assert count > 0, 'No se encontraron archivos nuevos'
+              print('Archivos extraídos:', count)
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add 02_Hardware
+          git commit -m 'Incorporar archivos de hardware desde ZIP'
+          git push
