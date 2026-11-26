@@ -1,0 +1,55 @@
+name: Importar pruebas
+on:
+  push:
+    paths:
+      - '.github/workflows/importar-pruebas.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  importar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Revisar y organizar ZIP
+        run: |
+          python - <<'PY'
+          import zipfile, pathlib, unicodedata, re
+          P=pathlib.PurePosixPath
+          root=pathlib.Path('04_Pruebas')
+          def norm(s):
+              return unicodedata.normalize('NFKD',s.lower()).encode('ascii','ignore').decode()
+          rules=[('01_Pantalla_GC9A01',r'gc9a01|pantalla|display|carita|tft'),('02_Sensor_Humedad',r'humedad|fc.?28|moisture'),('03_Sensor_Temperatura',r'temperatura|ds18b20|temperature'),('04_Sensor_Tactil',r'tactil|touch|capacitiv|ttp223'),('05_Bajo_Consumo',r'consumo|sleep|reposo'),('06_Integracion_Final',r'integracion|final')]
+          with zipfile.ZipFile('librerias.zip') as z:
+              assert z.testzip() is None
+              files=[]
+              for i in z.infolist():
+                  p=P(i.filename)
+                  if p.is_absolute() or '..' in p.parts or '\\' in i.filename: raise ValueError(i.filename)
+                  if i.is_dir() or any(x in ('.pio','.git','__MACOSX') for x in p.parts): continue
+                  files.append((i,p))
+              projects={p.parent for i,p in files if p.name.lower()=='platformio.ini'}
+              report=['# Inventario de pruebas importadas','']
+              for i,p in files:
+                  candidates=[q for q in projects if q in p.parents]
+                  q=max(candidates,key=lambda x:len(x.parts)) if candidates else None
+                  label=norm(q.name if q is not None else '/'.join(p.parts[:-1])+' '+p.stem)
+                  matches=[folder for folder,pattern in rules if re.search(pattern,label)]
+                  folder=matches[0] if len(matches)==1 else '00_Por_Clasificar'
+                  dest=root/folder/pathlib.Path(*p.parts)
+                  dest.parent.mkdir(parents=True,exist_ok=True)
+                  data=z.read(i)
+                  if dest.exists() and dest.read_bytes()!=data: raise ValueError(str(dest))
+                  dest.write_bytes(data)
+                  report.append('- '+str(dest))
+                  print(dest)
+              assert files
+              (root/'Inventario_importacion.md').write_text('\n'.join(report)+'\n',encoding='utf-8')
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add 04_Pruebas
+          if ! git diff --cached --quiet; then
+            git commit -m 'Importar proyectos de pruebas del prototipo'
+            git push
+          fi
