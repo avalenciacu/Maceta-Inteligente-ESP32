@@ -1,0 +1,43 @@
+name: Importar datasheets
+on:
+  push:
+    paths:
+      - '.github/workflows/importar-datasheets.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  importar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Extraer hojas de datos
+        run: |
+          python - <<'PY'
+          import zipfile
+          from pathlib import Path, PurePosixPath
+          root = Path('02_Hardware/Datasheets')
+          root.mkdir(parents=True, exist_ok=True)
+          with zipfile.ZipFile('datashet.zip') as z:
+              assert z.testzip() is None
+              count = 0
+              for item in z.infolist():
+                  p = PurePosixPath(item.filename)
+                  if item.is_dir() or p.suffix.lower() != '.pdf' or '__MACOSX' in p.parts: continue
+                  if p.is_absolute() or '..' in p.parts: raise ValueError(item.filename)
+                  data = z.read(item)
+                  dest = root / p.name
+                  if dest.exists():
+                      if dest.read_bytes() != data: raise ValueError('Conflicto: '+str(dest))
+                  else: dest.write_bytes(data)
+                  count += 1
+                  print(dest)
+              assert count > 0, 'No se encontraron PDF'
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add 02_Hardware/Datasheets
+          if ! git diff --cached --quiet; then
+            git commit -m 'Incorporar hojas de datos originales'
+            git push
+          fi
