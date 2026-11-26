@@ -1,0 +1,4 @@
+#include "MacetaFace.h"
+bool MacetaFace::begin(){if(!renderer.begin())return false;uint32_t now=millis();behavior.begin(now);animation.begin(Mood::NORMAL,now);lastFrame=fpsStart=now;ready=true;renderer.render(animation.frame);return true;}
+void MacetaFace::setMood(Mood m,uint32_t durationMs){if(static_cast<unsigned>(m)>=static_cast<unsigned>(Mood::COUNT))return;uint32_t now=millis();behavior.onMood(m,now);animation.setDuration(durationMs);animation.onMood(m,now);}
+void MacetaFace::update(){if(!ready)return;uint32_t now=millis();if(now-lastFrame<FaceConfig::FRAME_MS)return;lastFrame=now;behavior.update(mood(),now);animation.update(behavior,now);renderer.render(animation.frame);frames++;uint32_t end=millis();if(end-fpsStart>=1000){measuredFps=frames*1000.f/(end-fpsStart);fpsStart=end;frames=0;}}

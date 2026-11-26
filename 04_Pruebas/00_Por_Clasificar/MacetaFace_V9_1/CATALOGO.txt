@@ -1,0 +1,52 @@
+01. Normal
+02. Feliz
+03. Admiracion
+04. Curiosa
+05. Sorprendida
+06. Triste
+07. Acariciada
+08. Incomoda
+09. Enojada
+10. Calor
+11. Cansada y bostezando
+12. Dormida
+13. Esceptica
+14. Alerta curiosa
+15. Despertando
+16. Estresada
+17. Bebiendo agua
+18. Satisfecha
+19. Inundada
+20. Frio
+21. Sed intensa
+22. Carinosa
+23. Guino
+24. Risa
+25. Pensativa
+26. Cantando sin microfono
+27. Silbando
+28. Aburrida
+29. Traviesa
+30. Confundida
+31. Sonando
+32. Avergonzada
+33. Emocionada
+34. Relajada
+35. Picara con lengua
+36. Mareada
+37. Disimulando
+38. Leyendo
+39. Gafas de sol
+40. Cantando con microfono
+41. Investigando con lupa
+42. Jugando videojuegos
+43. Soplando burbujas
+44. Ventilador
+45. Oliendo una flor
+46. Jugando con un globo
+47. Haciendo magia
+48. Pintando
+49. Tomando fotografias
+50. Celebrando
+51. Haciendo ejercicio
+52. Comiendo helado
