@@ -1,0 +1,287 @@
+*************************************************************
+FileName = PCB_MACETA.GBR
+AutoAperture = True
+*************************************************************
+Generating : Mechanical 15
+      File : PCB_MACETA.GM15
+
+    Adding Layer      : Mechanical 15
+
+
+Used DCodes :
+    D56
+    D58
+*************************************************************
+
+*************************************************************
+Generating : Bottom Assembly
+      File : PCB_MACETA.GM12
+
+    Adding Layer      : Bottom Assembly
+
+
+Used DCodes :
+*************************************************************
+
+*************************************************************
+Generating : Top Assembly
+      File : PCB_MACETA.GM11
+
+    Adding Layer      : Top Assembly
+
+
+Used DCodes :
+    D56
+    D58
+*************************************************************
+
+*************************************************************
+Generating : Bottom 3D Body
+      File : PCB_MACETA.GM8
+
+    Adding Layer      : Bottom 3D Body
+
+
+Used DCodes :
+*************************************************************
+
+*************************************************************
+Generating : Top 3D Body
+      File : PCB_MACETA.GM7
+
+    Adding Layer      : Top 3D Body
+
+
+Used DCodes :
+*************************************************************
+
+*************************************************************
+Generating : Top Courtyard
+      File : PCB_MACETA.GM6
+
+    Adding Layer      : Top Courtyard
+
+
+Used DCodes :
+    D58
+*************************************************************
+
+*************************************************************
+Generating : Top Component Outline
+      File : PCB_MACETA.GM5
+
+    Adding Layer      : Top Component Outline
+
+
+Used DCodes :
+    D56
+*************************************************************
+
+*************************************************************
+Generating : BOARD_SHAPE
+      File : PCB_MACETA.GM2
+
+    Adding Layer      : BOARD_SHAPE
+
+
+Used DCodes :
+    D12
+    D14
+    D57
+*************************************************************
+
+*************************************************************
+Generating : Mechanical 1
+      File : PCB_MACETA.GM1
+
+    Adding Layer      : Mechanical 1
+
+
+Used DCodes :
+    D56
+*************************************************************
+
+*************************************************************
+Generating : Keep-Out Layer
+      File : PCB_MACETA.GKO
+
+    Adding Layer      : Keep-Out Layer
+
+
+Used DCodes :
+    D12
+*************************************************************
+
+*************************************************************
+Generating : Bottom Overlay
+      File : PCB_MACETA.GBO
+
+    Adding Layer      : Bottom Overlay
+
+
+Used DCodes :
+*************************************************************
+
+*************************************************************
+Generating : Bottom Paste
+      File : PCB_MACETA.GBP
+
+    Adding Layer      : Bottom Paste
+
+    Adding Layer      : Bottom Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+*************************************************************
+
+*************************************************************
+Generating : Bottom Solder
+      File : PCB_MACETA.GBS
+
+    Adding Layer      : Bottom Solder
+
+    Adding Layer      : Bottom Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D42
+    D43
+    D44
+    D45
+    D46
+*************************************************************
+
+*************************************************************
+Generating : Top Solder
+      File : PCB_MACETA.GTS
+
+    Adding Layer      : Top Solder
+
+    Adding Layer      : Top Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D29
+    D30
+    D31
+    D32
+    D33
+    D34
+    D35
+    D36
+    D37
+    D38
+    D39
+    D40
+    D41
+    D42
+    D43
+    D44
+    D45
+    D46
+*************************************************************
+
+*************************************************************
+Generating : Top Paste
+      File : PCB_MACETA.GTP
+
+    Adding Layer      : Top Paste
+
+    Adding Layer      : Top Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D16
+    D17
+    D18
+    D19
+    D20
+    D21
+    D22
+    D23
+    D24
+    D25
+    D26
+    D27
+    D28
+*************************************************************
+
+*************************************************************
+Generating : Top Overlay
+      File : PCB_MACETA.GTO
+
+    Adding Layer      : Top Overlay
+
+
+Used DCodes :
+    D10
+    D11
+    D12
+    D13
+    D14
+    D15
+*************************************************************
+
+*************************************************************
+Generating : Bottom Layer
+      File : PCB_MACETA.GBL
+
+    Adding Layer      : Bottom Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D47
+    D48
+    D49
+    D50
+    D51
+    D52
+    D53
+    D54
+    D55
+*************************************************************
+
+*************************************************************
+Generating : Top Layer
+      File : PCB_MACETA.GTL
+
+    Adding Layer      : Top Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D16
+    D17
+    D18
+    D19
+    D20
+    D21
+    D22
+    D23
+    D24
+    D25
+    D26
+    D27
+    D28
+    D47
+    D48
+    D49
+    D50
+    D51
+    D52
+    D53
+    D54
+    D55
+*************************************************************
+

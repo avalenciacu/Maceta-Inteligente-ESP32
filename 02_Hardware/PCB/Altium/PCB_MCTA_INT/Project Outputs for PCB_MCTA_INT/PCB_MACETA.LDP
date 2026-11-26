@@ -1,0 +1,3 @@
+Layer Pairs Export File for PCB: C:\Users\User\Documents\1 DISEÑO ELECTRONICO\1_MACETA_INTELIGENTE\PCB\PCB_MCTA_INT\PCB_MACETA.PcbDoc
+LayersSetName=Top_Bot_Plated_Thru_Holes|DrillFile=pcb_maceta-roundholes-plated.txt|DrillLayers=gtl,gbl
+LayersSetName=Top_Bot_Plated_Slot_Holes|DrillFile=pcb_maceta-slotholes-plated.txt|DrillLayers=gtl,gbl

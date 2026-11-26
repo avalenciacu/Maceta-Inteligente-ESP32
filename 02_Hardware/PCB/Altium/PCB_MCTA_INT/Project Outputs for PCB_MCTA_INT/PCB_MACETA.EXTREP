@@ -1,0 +1,27 @@
+------------------------------------------------------------------------------------------
+Gerber File Extension Report For: PCB_MACETA.GBR   16/11/2026  4:41:53 p. m.
+------------------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------------------
+Layer Extension     Layer Description                      
+------------------------------------------------------------------------------------------
+.GTO                Top Overlay                             
+.GTP                Top Paste                               
+.GTS                Top Solder                              
+.GTL                Top Layer                               
+.GBL                Bottom Layer                            
+.GBS                Bottom Solder                           
+.GBP                Bottom Paste                            
+.GBO                Bottom Overlay                          
+.GM1                Mechanical 1                            
+.GM2                BOARD_SHAPE                             
+.GM5                Top Component Outline                   
+.GM6                Top Courtyard                           
+.GM7                Top 3D Body                             
+.GM8                Bottom 3D Body                          
+.GM11               Top Assembly                            
+.GM12               Bottom Assembly                         
+.GM15               Mechanical 15                           
+.GKO                Keep-Out Layer                          
+------------------------------------------------------------------------------------------
